@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UA Parser</title>
+</head>
+<body ng-app="YOUR_APP" ng-controller="MainCtrl">
+
+  {{ getUA() }}
+  <script src="http://faisalman.github.io/ua-parser-js/src/ua-parser.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+  <script src="../angular-ua-parser.js"></script>
+
+  <!--
+  <script src="app/bower_components/angular-ua-parser/angular-ua-parser.js"></script>
+  -->
+
+  <script>
+    angular.module('YOUR_APP', [
+      'ngUAParser'
+    ])
+    .controller('MainCtrl', function($scope, UAParser) {
+      console.log(arguments)
+      window.Debug = UAParser;
+      $scope.getUA = function() {
+        UAParser.getUA();
+      };
+    });
+  </script>
+</body>
+</html>
